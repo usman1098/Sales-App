@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\CityAreaController;
 use App\Http\Controllers\Api\MeetingController;
+use App\Http\Controllers\Api\ClinicController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -25,7 +26,10 @@ Route::middleware('auth:sanctum')->group(function () {
    Route::get('/cities', [CityController::class, 'index']);
    Route::get('/city-area', [CityAreaController::class, 'index']);
    Route::apiresource('meetings', MeetingController::class);
-Route::patch('meetings/{id}/status', [MeetingController::class, 'updateStatus']);
+   Route::patch('meetings/{id}/status', [MeetingController::class, 'updateStatus']);
+
+   // Clinic Route
+   Route::get('/clinics',[ClinicController::class, 'index']);
 
 
 

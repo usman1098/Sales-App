@@ -4,20 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\City;
-class CityArea extends Model
+
+class Clinic extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'city_id',
-        'area',
-        'publish_status',
+        'clinic_name',
         'created_by',
+        'updated_by',
     ];
 
-    public function city()
+    public function clinicDetail()
     {
-        return $this->belongsTo(City::class);
+        return $this->hasOne(ClinicDetail::class, 'clinic_id');
     }
 }

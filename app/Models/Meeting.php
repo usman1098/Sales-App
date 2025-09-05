@@ -19,6 +19,9 @@ class Meeting extends Model
         'visit_type',
         'visit_purpose',
         'meeting_location',
+        'lat',
+        'long',
+        'assinged_by',
         'notes',
         'status',
     ];
