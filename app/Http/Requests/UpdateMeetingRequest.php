@@ -24,6 +24,9 @@ class UpdateMeetingRequest extends FormRequest
             'meeting_location' => 'sometimes|required|string|max:255',
             'notes'            => 'sometimes|nullable|string|max:1000',
             'status'           => 'sometimes|required|string|max:255',
+            'lat'              =>'required',
+            'long'             =>'required',
+            'assinged_by'      =>'required',
         ];
     }
 }

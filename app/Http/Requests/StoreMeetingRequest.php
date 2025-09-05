@@ -24,6 +24,9 @@ class StoreMeetingRequest extends FormRequest
             'meeting_location' => 'required|string|max:255',
             'notes'            => 'nullable|string|max:1000', 
             'status'           => 'required|string|max:255',
-        ];
+            'lat'              =>'required',
+            'long'             =>'required',
+            'assinged_by'      =>'required',
+         ];
     }
 }
