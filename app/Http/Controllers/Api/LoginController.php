@@ -33,10 +33,10 @@ class LoginController extends Controller
             return response()->json([
                 'status'  => 'error',
                 'message' => 'Invalid credentials'
-            ], Response::HTTP_UNAUTHORIZED); 
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
-        if ($user->active !== 'yes') { 
+        if ($user->active !== 'true') {
             return response()->json([
                 'status'  => 'error',
                 'message' => 'Please activate your account'
