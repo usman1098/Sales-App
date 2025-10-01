@@ -26,7 +26,7 @@ class MeetingController extends Controller
         $duration = (int) filter_var($data['duration'], FILTER_SANITIZE_NUMBER_INT);
         $endTime = $startTime->copy()->addMinutes($duration);
         $data['end_time'] = $endTime->format('h:i A');
-
+        dd($data);
         $meeting = Meeting::create($data);
 
         return new MeetingResource($meeting);
@@ -45,11 +45,11 @@ class MeetingController extends Controller
             throw new NotFoundHttpException("Meeting with id {$id} not found.");
         }
         if (!empty($data['start_time']) && !empty($data['duration'])) {
-        $startTime = Carbon::createFromFormat('h:i A', $data['start_time']);
-        $duration = (int) filter_var($data['duration'], FILTER_SANITIZE_NUMBER_INT);
-        $endTime = $startTime->copy()->addMinutes($duration);
-        $data['end_time'] = $endTime->format('h:i A');
-       }
+            $startTime = Carbon::createFromFormat('h:i A', $data['start_time']);
+            $duration = (int) filter_var($data['duration'], FILTER_SANITIZE_NUMBER_INT);
+            $endTime = $startTime->copy()->addMinutes($duration);
+            $data['end_time'] = $endTime->format('h:i A');
+        }
         $meeting->update($data);
         return new MeetingResource($meeting);
     }
@@ -63,7 +63,7 @@ class MeetingController extends Controller
         ], 200);
     }
 
-     public function updateStatus(Request $request, $id)
+    public function updateStatus(Request $request, $id)
     {
         $request->validate([
             'status' => 'required|in:Scheduled,Rescheduled,In Progress,Completed',
