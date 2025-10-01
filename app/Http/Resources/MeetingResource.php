@@ -12,9 +12,11 @@ class MeetingResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+
     public function toArray(Request $request): array
     {
-         return [
+
+        return [
             'id'               => $this->id,
             'clinic'           => $this->clinic,
             'dentist_name'     => $this->dentist_name,
